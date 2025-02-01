@@ -47,7 +47,7 @@ class _ChatPageState extends State<ChatPage> {
   // Fetch chat messages from REST API
   Future<void> _fetchMessages() async {
     final response = await http.get(
-        Uri.parse('http://192.168.0.32:3000/api/messages'),
+        Uri.parse('http://localhost:3000/api/messages'),
         headers: {'Content-Type': 'application/json'});
     print('Response status: ${response.statusCode}');
     if (response.statusCode == 200) {
@@ -62,7 +62,7 @@ class _ChatPageState extends State<ChatPage> {
   // Send message using WebSocket
   Future<void> _sendMessage(String messageText) async {
     print('welcome');
-    String apiUrl = 'http://192.168.0.32:3000/api/messages';
+    String apiUrl = 'http://localhost:3000/api/messages';
     if (messageText.isNotEmpty) {
       print('welcome111');
       final message = {'text': messageText, 'sender': 'User'};
